@@ -58,5 +58,14 @@ namespace Telegram_bot_WPF
 
         public void AddMessage(string Text) => Messages.Add(Text);
 
+        public IEnumerator<TelegramUser> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
