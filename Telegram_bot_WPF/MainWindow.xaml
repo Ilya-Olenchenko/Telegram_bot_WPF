@@ -15,11 +15,12 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ListBox  Margin="235,7,7,148">
+        <ListBox  Margin="235,7,7,148"
+                  ItemsSource="{Binding ElementName=userList, Path=SelectedItem.Messages}">
 
         </ListBox>
 
-        <TextBox x:Name="txtBxSendMsg" HorizontalAlignment="Left" Margin="239,284,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="583" Height="76"/>
+        <TextBox x:Name="txtBxSendMsg" HorizontalAlignment="Left" Margin="239,284,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="583" Height="76"/>
         <Button x:Name="btnSendMsg" Content="Надіслати" HorizontalAlignment="Left" Margin="719,373,0,0" VerticalAlignment="Top" Height="29" Width="90"/>
 
     </Grid>
