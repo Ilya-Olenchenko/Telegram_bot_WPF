@@ -41,7 +41,6 @@ namespace Telegram_bot_WPF
                 });
             };
 
-
             bot.StartReceiving();
             btnSendMsg.Click += delegate { SendMsg(); };
             txtBxSendMsg.KeyDown += (s, e) => { if (e.Key == Key.Return) { SendMsg(); } };

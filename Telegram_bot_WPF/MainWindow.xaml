@@ -5,9 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Telegram_bot_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="439" Width="828">
+        Title="MainWindow" Height="534" Width="739" MinWidth="430" MinHeight="350">
     <Grid>
-        <ListBox x:Name="userList"  Margin="7,8,605,8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Cursor="Arrow"/>
+            <ColumnDefinition  Width="110"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+
+        <ListBox x:Name="userList" Grid.Column="0" Grid.RowSpan="4">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Nick}"/>
@@ -15,13 +30,13 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ListBox  Margin="235,7,7,148"
-                  ItemsSource="{Binding ElementName=userList, Path=SelectedItem.Messages}">
 
-        </ListBox>
+        <ListBox Grid.Column="2" Grid.ColumnSpan="2"
+            ItemsSource="{Binding ElementName=userList, Path=SelectedItem.Messages}"></ListBox>
 
-        <TextBox x:Name="txtBxSendMsg" HorizontalAlignment="Left" Margin="239,284,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="583" Height="76"/>
-        <Button x:Name="btnSendMsg" Content="Надіслати" HorizontalAlignment="Left" Margin="719,373,0,0" VerticalAlignment="Top" Height="29" Width="90"/>
+
+        <TextBox x:Name="txtBxSendMsg"  TextWrapping="Wrap"  Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="5"/>
+        <Button x:Name="btnSendMsg" Content="Надіслати" Grid.Column="4" Grid.Row="3" Height="30" Width="100"/>
 
     </Grid>
 </Window>
