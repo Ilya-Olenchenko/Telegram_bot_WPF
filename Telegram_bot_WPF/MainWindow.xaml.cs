@@ -13,16 +13,15 @@ namespace Telegram_bot_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        string token = "5122212670:AAEVIgyIc5IlrlcWpmmchjaNzBVYLWEWEdw";
         ObservableCollection<TelegramUser> Users;
         TelegramBotClient bot;
         public MainWindow()
         {
             InitializeComponent();
             Users = new ObservableCollection<TelegramUser>();
-
             userList.ItemsSource = Users;
 
-            string token = "5122212670:AAEVIgyIc5IlrlcWpmmchjaNzBVYLWEWEdw";
 
             bot = new TelegramBotClient(token);
 
@@ -30,7 +29,7 @@ namespace Telegram_bot_WPF
             {
                 string msg = $"{DateTime.Now}: {e.Message.Chat.FirstName} {e.Message.Chat.Id} {e.Message.Text}";
 
-                File.AppendAllText("data.log", $"{msg}\n"); // Зберігання повідомлень в файл.
+                System.IO.File.AppendAllText("data.log", $"{msg}\n"); // Зберігання повідомлень в файл.
 
                 Debug.WriteLine(msg);
                 this.Dispatcher.Invoke(() => 
