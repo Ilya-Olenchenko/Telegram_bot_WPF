@@ -7,10 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="439" Width="828">
     <Grid>
-        <ListBox x:Name="userList"  Margin="7,8,605,8"/>
-        <ListBox  Margin="235,7,7,148"/>
-        <TextBox x:Name="txtBxSendMsg" HorizontalAlignment="Left" Margin="239,284,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="560" Height="76"/>
-        <Button x:Name="btnSendMsg" Content="Надіслати" HorizontalAlignment="Left" Margin="716,383,0,0" VerticalAlignment="Top" Height="29" Width="90"/>
+        <ListBox x:Name="userList"  Margin="7,8,605,8">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Nick}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ListBox  Margin="235,7,7,148">
+
+        </ListBox>
+
+        <TextBox x:Name="txtBxSendMsg" HorizontalAlignment="Left" Margin="239,284,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="583" Height="76"/>
+        <Button x:Name="btnSendMsg" Content="Надіслати" HorizontalAlignment="Left" Margin="719,373,0,0" VerticalAlignment="Top" Height="29" Width="90"/>
 
     </Grid>
 </Window>
